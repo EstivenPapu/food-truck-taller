@@ -29,8 +29,22 @@ public class Main {
     }
 
     static double leerDato(){
-        System.out.println("Dijite un numero");
-        double venta = NS.nextDouble();
-        return venta;
+        while(true) {
+            System.out.println("Dijite un numero");
+
+            if (!NS.hasNextDouble()){
+                mostrarMensaje("Erro: ingrese un valor numerico valido");
+                NS.next();
+                continue;
+            }
+
+            double venta = NS.nextDouble();
+            if(venta < 0) {
+                mostrarMensaje("Error, el valor no puede ser negativo. Intente de nuevo");
+                continue;
+            }
+
+            return venta;
+        }
     }
 }
